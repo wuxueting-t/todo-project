@@ -4,9 +4,12 @@ todos = []
 
 
 def add_todo(task):
+    if not task.strip():
+        print("待办事项不能为空！")
+        return
+
     todos.append(task)
     print(f"添加成功：{task}")
-
 
 def show_todos():
     if not todos:
