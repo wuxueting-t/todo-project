@@ -11,6 +11,7 @@ def add_todo(task):
     todos.append(task)
     print(f"添加成功：{task}")
 
+
 def show_todos():
     if not todos:
         print("当前没有待办事项")
@@ -20,9 +21,32 @@ def show_todos():
         print(f"{index}. {task}")
 
 
-if __name__ == "__main__":
-    add_todo("学习 Git")
-    add_todo("学习 merge")
-    add_todo("学习 rebase")
+# 必须先定义 main 函数
+def main():
+    while True:
+        print("\n======== Todo 管理系统 ========")
+        print("1. 添加待办")
+        print("2. 查看待办")
+        print("3. 退出程序")
 
-    show_todos()
+        choice = input("请选择操作：")
+
+        if choice == "1":
+            task = input("请输入待办事项：")
+            add_todo(task)
+
+        elif choice == "2":
+            show_todos()
+
+        elif choice == "3":
+            print("退出 Todo 管理系统！")
+            break
+
+        else:
+            print("无效选择，请重新输入！")
+
+
+# 最后才调用 main
+if __name__ == "__main__":
+    main()
+    
